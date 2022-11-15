@@ -14,14 +14,12 @@ Configurations:
 $result = Get-CimInstance win32_process | select commandline | Where-Object {$_.commandline -Like "*iexplore.exe*"} | Where-Object {$_.commandline -NotLike "*iexplore.exe*APPID:MSEdge*"} 
 if ($result -eq $null)
 {
-# Standalone IE process not found
-Write-Host "iexplore.exe is not running"
+# Standalone IE process not found (iexplore.exe is not running)
 Write-Output $false
 }
 else 
 {
-# Standalone IE process found
-Write-Host "iexplore.exe is running as standalone app"
+# Standalone IE process found (iexplore.exe is running as standalone app)
 Write-Output $true
 }
 
